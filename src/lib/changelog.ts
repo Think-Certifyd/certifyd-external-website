@@ -3,6 +3,33 @@ import type { ChangelogEntry } from "@/types";
 export const CHANGELOG: ChangelogEntry[] = [
   {
     date: "2026-02-07",
+    version: "1.3.0",
+    title: "Visual upgrade — creative graphics and mock UI elements",
+    summary:
+      "Major visual overhaul of the home page inspired by growleady.io. Hero redesigned with split layout and live Verification Dashboard mockup. New MetricsBar section. WhatWeDo cards now feature mini mock UI previews. HowItWorks includes real app mockup images. FourStories cards enhanced with severity bars.",
+    changes: [
+      {
+        category: "added",
+        items: [
+          "Hero: Live Verification Dashboard mock UI with stats, feed, and compliance bar",
+          "MetricsBar: New section with real-time metrics (30s, <60s, 100%, 24/7)",
+          "WhatWeDo: Mini mock UI previews — QR code, team roster, compliance gauge",
+          "HowItWorks: Real Certifyd app mockup images for Scan and Verified steps",
+          "FourStories: Warning severity bars across top of each card",
+        ],
+      },
+      {
+        category: "changed",
+        items: [
+          "Hero layout changed from centered text to split (text left, dashboard right)",
+          "FourStories stat text upgraded to bolder IBM Plex Mono treatment",
+          "Home page section order: Hero → FourStories → MetricsBar → HowItWorks → WhatWeDo → CTA",
+        ],
+      },
+    ],
+  },
+  {
+    date: "2026-02-07",
     version: "1.2.0",
     title: "Solutions & Industries restructure",
     summary:

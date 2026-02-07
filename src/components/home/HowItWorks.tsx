@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -8,22 +9,26 @@ const STEPS = [
     number: 1,
     title: "Open",
     description: "Both people have Certifyd on their phone.",
+    image: null,
   },
   {
     number: 2,
     title: "Scan",
     description: "One shows their QR code, the other scans it.",
+    image: "/app/scan-qr-mockup.png",
   },
   {
     number: 3,
     title: "Verified",
     description:
       "Both get instant confirmation of who they\u2019re talking to.",
+    image: "/app/hero-mockup-2.png",
   },
   {
     number: 4,
     title: "Recorded",
     description: "An auditable, tamper-proof record is created.",
+    image: null,
   },
 ];
 
@@ -62,6 +67,21 @@ export function HowItWorks() {
                 <p className="text-text-on-dark-muted text-sm mt-2">
                   {step.description}
                 </p>
+
+                {/* App mockup images — desktop only */}
+                {step.image && (
+                  <div className="hidden lg:block mt-6">
+                    <div className="relative mx-auto w-32 h-56 rounded-xl overflow-hidden border border-navy-border/50 shadow-lg shadow-certifyd-blue/5">
+                      <Image
+                        src={step.image}
+                        alt={`${step.title} — Certifyd app screen`}
+                        fill
+                        className="object-cover object-top"
+                        sizes="128px"
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             </ScrollReveal>
           ))}

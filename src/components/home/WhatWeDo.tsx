@@ -4,41 +4,165 @@ import Link from "next/link";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
+/* ── Mini mock UI previews ─────────────────────────────────── */
+
+function QRPreview() {
+  return (
+    <div className="bg-navy rounded-md p-4 mb-6">
+      <div className="flex items-center justify-between mb-3">
+        <span className="text-[10px] font-semibold text-text-on-dark-muted uppercase tracking-wider">
+          Certifyd Stamp
+        </span>
+        <span className="inline-flex items-center gap-1 text-[10px] text-accent-success">
+          <span className="w-1.5 h-1.5 rounded-full bg-accent-success" />
+          Active
+        </span>
+      </div>
+      {/* CSS QR code pattern */}
+      <div className="flex items-center justify-center py-3">
+        <div className="grid grid-cols-7 gap-[3px] w-20 h-20">
+          {[
+            1,1,1,0,1,1,1,
+            1,0,1,1,1,0,1,
+            1,1,1,0,1,1,1,
+            0,1,0,1,0,1,0,
+            1,1,1,0,1,1,1,
+            1,0,1,1,1,0,1,
+            1,1,1,0,1,1,1,
+          ].map((filled, i) => (
+            <div
+              key={i}
+              className={filled ? "bg-certifyd-blue rounded-[1px]" : "bg-transparent"}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="text-center">
+        <span className="font-heading text-[10px] text-text-on-dark-muted tracking-wider">
+          Scan to Verify
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function TeamRosterPreview() {
+  const team = [
+    { name: "Sarah J.", status: "verified" },
+    { name: "David C.", status: "verified" },
+    { name: "James W.", status: "pending" },
+  ];
+  return (
+    <div className="bg-navy rounded-md p-4 mb-6">
+      <div className="flex items-center justify-between mb-3">
+        <span className="text-[10px] font-semibold text-text-on-dark-muted uppercase tracking-wider">
+          Team Verification
+        </span>
+        <span className="text-[10px] text-certifyd-blue font-heading font-bold">
+          2/3
+        </span>
+      </div>
+      <div className="space-y-2">
+        {team.map((member) => (
+          <div
+            key={member.name}
+            className="flex items-center justify-between py-1.5 border-b border-navy-border/40 last:border-0"
+          >
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 rounded-full bg-navy-lighter flex items-center justify-center">
+                <span className="text-[8px] font-bold text-text-on-dark-muted">
+                  {member.name[0]}
+                </span>
+              </div>
+              <span className="text-xs text-text-on-dark">{member.name}</span>
+            </div>
+            {member.status === "verified" ? (
+              <span className="text-[10px] text-accent-success font-medium flex items-center gap-1">
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+                Verified
+              </span>
+            ) : (
+              <span className="text-[10px] text-accent-warning font-medium flex items-center gap-1">
+                <svg className="w-3 h-3 animate-pulse" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                Pending
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function CompliancePreview() {
+  return (
+    <div className="bg-navy rounded-md p-4 mb-6">
+      <div className="flex items-center justify-between mb-3">
+        <span className="text-[10px] font-semibold text-text-on-dark-muted uppercase tracking-wider">
+          Compliance
+        </span>
+        <span className="font-heading text-lg font-bold text-certifyd-blue">
+          93%
+        </span>
+      </div>
+      {/* Progress bar */}
+      <div className="w-full h-2.5 bg-navy-lighter rounded-full overflow-hidden mb-3">
+        <div
+          className="h-full bg-gradient-to-r from-certifyd-blue to-certifyd-blue-light rounded-full"
+          style={{ width: "93%" }}
+        />
+      </div>
+      <div className="flex items-center justify-between">
+        <span className="text-[10px] text-accent-success">28 Verified</span>
+        <span className="text-[10px] text-accent-warning">2 Pending</span>
+      </div>
+      {/* Mini bar chart */}
+      <div className="flex items-end gap-1 mt-3 h-8">
+        {[60, 80, 45, 90, 70, 95, 85, 93].map((h, i) => (
+          <div
+            key={i}
+            className="flex-1 rounded-sm overflow-hidden"
+            style={{ height: `${h}%` }}
+          >
+            <div className="w-full h-full rounded-sm bg-certifyd-blue/60" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ── Capabilities data ─────────────────────────────────────── */
+
 const CAPABILITIES = [
   {
     title: "Certify That Person",
     description:
       "Two-way, real-time identity verification. QR code refreshes every 30 seconds. Works across any communication channel.",
     href: "/solutions/person/",
-    icon: (
-      <svg className="w-7 h-7 text-certifyd-blue" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-      </svg>
-    ),
+    preview: <QRPreview />,
   },
   {
     title: "Certify That Business",
     description:
       "Businesses create their profile, add team members, and build a verified workforce. Candidates and contractors verify to stand out.",
     href: "/solutions/business/",
-    icon: (
-      <svg className="w-7 h-7 text-certifyd-blue" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-      </svg>
-    ),
+    preview: <TeamRosterPreview />,
   },
   {
     title: "Audit-Ready Compliance",
     description:
       "See who\u2019s verified, who\u2019s pending, and your compliance score. One-click reports. Audit-ready when it matters.",
     href: "/solutions/compliance/",
-    icon: (
-      <svg className="w-7 h-7 text-certifyd-blue" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-      </svg>
-    ),
+    preview: <CompliancePreview />,
   },
 ];
+
+/* ── Component ─────────────────────────────────────────────── */
 
 export function WhatWeDo() {
   return (
@@ -58,31 +182,33 @@ export function WhatWeDo() {
             <ScrollReveal key={cap.title} delay={index * 120}>
               <Link
                 href={cap.href}
-                className="group block bg-white border border-warm-border rounded-sm p-8 text-center hover:shadow-lg hover:-translate-y-1 hover:border-certifyd-blue/30 transition-all duration-300"
+                className="group block bg-white border border-warm-border rounded-sm overflow-hidden hover:shadow-lg hover:-translate-y-1 hover:border-certifyd-blue/30 transition-all duration-300"
               >
-                <div className="w-14 h-14 mx-auto rounded-sm bg-certifyd-blue/10 flex items-center justify-center mb-6">
-                  {cap.icon}
+                <div className="p-6 pb-0">
+                  {cap.preview}
                 </div>
-                <h3 className="font-heading text-xl font-semibold text-text-on-light mb-3">
-                  {cap.title}
-                </h3>
-                <p className="text-text-on-light-muted text-sm leading-relaxed mb-4">
-                  {cap.description}
-                </p>
-                <span className="inline-flex items-center text-certifyd-blue text-sm font-heading font-medium">
-                  <span className="transition-transform duration-300 group-hover:-translate-x-0.5">
-                    Learn more
+                <div className="p-6 pt-0 text-center">
+                  <h3 className="font-heading text-xl font-semibold text-text-on-light mb-3">
+                    {cap.title}
+                  </h3>
+                  <p className="text-text-on-light-muted text-sm leading-relaxed mb-4">
+                    {cap.description}
+                  </p>
+                  <span className="inline-flex items-center text-certifyd-blue text-sm font-heading font-medium">
+                    <span className="transition-transform duration-300 group-hover:-translate-x-0.5">
+                      Learn more
+                    </span>
+                    <svg
+                      className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2}
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
                   </span>
-                  <svg
-                    className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2}
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                  </svg>
-                </span>
+                </div>
               </Link>
             </ScrollReveal>
           ))}
