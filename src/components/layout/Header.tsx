@@ -130,7 +130,7 @@ export function Header() {
                 href="/contact/"
                 className="hidden rounded-sm bg-certifyd-blue px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-certifyd-blue-light lg:inline-block"
               >
-                Get in Touch
+                Book a Demo
               </Link>
 
               {/* Mobile Hamburger */}

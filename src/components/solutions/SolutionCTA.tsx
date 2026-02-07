@@ -32,7 +32,7 @@ export function SolutionCTA({ title, href = "/contact/", secondaryLabel, seconda
             </h2>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Button variant="outline" size="lg" href={href}>
-                Get in touch
+                Book a demo
               </Button>
               {secondaryLabel && secondaryHref ? (
                 <Button variant="ghost" size="lg" href={secondaryHref} className="text-text-on-dark-muted hover:text-white">

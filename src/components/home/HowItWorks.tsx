@@ -3,40 +3,49 @@
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
+/* ── Certifyd "C" icon (inline SVG from brand assets) ── */
+function CertifydIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 1388 1388" fill="none">
+      <rect x="236.629" y="243.054" width="1149.87" height="1127.91" fill="#0059FF" />
+      <rect x="-4.924" y="1.5" width="1149.87" height="1127.91" fill="#0059FF" />
+      <rect x="284.719" y="291.144" width="812.137" height="781.491" fill="white" />
+      <rect x="476.684" y="483.108" width="428.209" height="406.25" fill="#0059FF" />
+      <rect x="608.441" y="592.906" width="164.696" height="186.655" fill="white" />
+      <rect x="696" y="648" width="226" height="77" fill="white" />
+    </svg>
+  );
+}
+
 /* ── Shared phone frame ── */
 function PhoneFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative mx-auto w-28 h-48 rounded-2xl border border-navy-border bg-navy-lighter overflow-hidden shadow-lg shadow-certifyd-blue/5">
+    <div className="relative mx-auto w-36 h-60 rounded-2xl border border-navy-border bg-navy-lighter overflow-hidden shadow-lg shadow-certifyd-blue/5">
       {/* Notch */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-3 bg-navy rounded-b-lg z-10" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-3.5 bg-navy rounded-b-lg z-10" />
       {/* Screen content */}
-      <div className="pt-5 px-2 pb-2 h-full flex flex-col items-center justify-center">
+      <div className="pt-6 px-3 pb-3 h-full flex flex-col items-center justify-center">
         {children}
       </div>
     </div>
   );
 }
 
-/* ── Step 1: Open — Two small phones with Certifyd icon ── */
+/* ── Step 1: Open — Two phones with Certifyd icon ── */
 function OpenGraphic() {
   return (
-    <div className="mt-6 flex items-end justify-center gap-2">
-      <div className="w-20 h-36 rounded-xl border border-navy-border bg-navy-lighter overflow-hidden relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-2 bg-navy rounded-b-md" />
-        <div className="h-full flex items-center justify-center">
-          <div className="w-8 h-8 rounded-md bg-certifyd-blue flex items-center justify-center">
-            <span className="text-white font-heading text-[10px] font-bold">C</span>
+    <div className="mt-6 flex items-end justify-center gap-3 h-60">
+      {[0, 1].map((i) => (
+        <div
+          key={i}
+          className="w-24 h-44 rounded-xl border border-navy-border bg-navy-lighter overflow-hidden relative shadow-lg shadow-certifyd-blue/5"
+        >
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-10 h-2.5 bg-navy rounded-b-md" />
+          <div className="h-full flex items-center justify-center">
+            <CertifydIcon className="w-12 h-12" />
           </div>
         </div>
-      </div>
-      <div className="w-20 h-36 rounded-xl border border-navy-border bg-navy-lighter overflow-hidden relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-2 bg-navy rounded-b-md" />
-        <div className="h-full flex items-center justify-center">
-          <div className="w-8 h-8 rounded-md bg-certifyd-blue flex items-center justify-center">
-            <span className="text-white font-heading text-[10px] font-bold">C</span>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }
@@ -44,29 +53,29 @@ function OpenGraphic() {
 /* ── Step 2: Scan — Phone with QR code + Certifyd icon in centre ── */
 function ScanGraphic() {
   const qrPattern = [
-    [1,1,1,0,1,0,1,1,1],
-    [1,0,1,0,0,0,1,0,1],
-    [1,1,1,0,1,0,1,1,1],
-    [0,0,0,0,1,0,0,0,0],
-    [1,0,1,1,0,1,1,0,1],
-    [0,0,0,0,1,0,0,0,0],
-    [1,1,1,0,0,0,1,1,1],
-    [1,0,1,0,1,0,1,0,1],
-    [1,1,1,0,1,0,1,1,1],
+    [1, 1, 1, 0, 1, 0, 1, 1, 1],
+    [1, 0, 1, 0, 0, 0, 1, 0, 1],
+    [1, 1, 1, 0, 1, 0, 1, 1, 1],
+    [0, 0, 0, 0, 1, 0, 0, 0, 0],
+    [1, 0, 1, 1, 0, 1, 1, 0, 1],
+    [0, 0, 0, 0, 1, 0, 0, 0, 0],
+    [1, 1, 1, 0, 0, 0, 1, 1, 1],
+    [1, 0, 1, 0, 1, 0, 1, 0, 1],
+    [1, 1, 1, 0, 1, 0, 1, 1, 1],
   ];
 
   return (
     <div className="mt-6">
       <PhoneFrame>
-        <div className="text-[8px] font-heading text-text-on-dark-muted uppercase tracking-wider mb-2">
+        <div className="text-[9px] font-heading text-text-on-dark-muted uppercase tracking-wider mb-3">
           Scan to Verify
         </div>
         <div className="relative">
-          <div className="grid grid-cols-9 gap-[2px]">
+          <div className="grid grid-cols-9 gap-[3px]">
             {qrPattern.flat().map((cell, i) => (
               <div
                 key={i}
-                className={`w-[6px] h-[6px] rounded-[1px] ${
+                className={`w-2 h-2 rounded-[1px] ${
                   cell ? "bg-certifyd-blue" : "bg-transparent"
                 }`}
               />
@@ -74,12 +83,12 @@ function ScanGraphic() {
           </div>
           {/* Certifyd icon overlay in centre */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-4 h-4 rounded-sm bg-certifyd-blue flex items-center justify-center border border-navy-lighter">
-              <span className="text-white font-heading text-[6px] font-bold">C</span>
+            <div className="w-5 h-5 rounded-sm bg-white flex items-center justify-center">
+              <CertifydIcon className="w-4 h-4" />
             </div>
           </div>
         </div>
-        <div className="text-[7px] text-text-on-dark-muted mt-2">
+        <div className="text-[8px] text-text-on-dark-muted mt-3">
           Refreshes in 30s
         </div>
       </PhoneFrame>
@@ -92,17 +101,27 @@ function VerifiedGraphic() {
   return (
     <div className="mt-6">
       <PhoneFrame>
-        <svg className="w-8 h-8 text-accent-success mb-1" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        <svg
+          className="w-10 h-10 text-accent-success mb-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
         </svg>
-        <div className="text-[9px] font-heading font-semibold text-accent-success">
+        <div className="text-[11px] font-heading font-semibold text-accent-success">
           Identity Verified
         </div>
-        <div className="text-[7px] text-text-on-dark-muted mt-1">
+        <div className="text-[9px] text-text-on-dark-muted mt-1">
           Jane Smith
         </div>
-        <div className="w-12 h-px bg-navy-border my-1.5" />
-        <div className="text-[7px] text-text-on-dark-muted">
+        <div className="w-14 h-px bg-navy-border my-2" />
+        <div className="text-[9px] text-text-on-dark-muted">
           Both confirmed
         </div>
       </PhoneFrame>
@@ -115,18 +134,28 @@ function RecordedGraphic() {
   return (
     <div className="mt-6">
       <PhoneFrame>
-        <svg className="w-6 h-6 text-certifyd-blue mb-1" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+        <svg
+          className="w-8 h-8 text-certifyd-blue mb-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+          />
         </svg>
-        <div className="text-[9px] font-heading font-semibold text-certifyd-blue">
+        <div className="text-[11px] font-heading font-semibold text-certifyd-blue">
           Record Created
         </div>
-        <div className="w-full mt-2 space-y-1">
-          <div className="h-1 bg-navy-border rounded-full w-full" />
-          <div className="h-1 bg-navy-border rounded-full w-3/4" />
-          <div className="h-1 bg-navy-border rounded-full w-5/6" />
+        <div className="w-full mt-3 space-y-1.5">
+          <div className="h-1.5 bg-navy-border rounded-full w-full" />
+          <div className="h-1.5 bg-navy-border rounded-full w-3/4" />
+          <div className="h-1.5 bg-navy-border rounded-full w-5/6" />
         </div>
-        <div className="text-[7px] text-text-on-dark-muted mt-1.5">
+        <div className="text-[9px] text-text-on-dark-muted mt-2">
           Tamper-proof
         </div>
       </PhoneFrame>
@@ -134,7 +163,12 @@ function RecordedGraphic() {
   );
 }
 
-const STEP_GRAPHICS = [OpenGraphic, ScanGraphic, VerifiedGraphic, RecordedGraphic];
+const STEP_GRAPHICS = [
+  OpenGraphic,
+  ScanGraphic,
+  VerifiedGraphic,
+  RecordedGraphic,
+];
 
 const STEPS = [
   {

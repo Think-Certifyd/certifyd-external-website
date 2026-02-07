@@ -196,7 +196,7 @@ export function Hero() {
                 href="/contact/"
                 className="text-text-on-dark-muted hover:text-white"
               >
-                Get in touch
+                Book a demo
               </Button>
             </div>
           </div>

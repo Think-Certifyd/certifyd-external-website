@@ -118,7 +118,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               onClick={onClose}
               className="block w-full rounded-sm bg-certifyd-blue px-5 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-certifyd-blue-light"
             >
-              Get in Touch
+              Book a Demo
             </Link>
           </div>
         </div>

@@ -5,10 +5,10 @@ import { FOUR_STORIES } from "@/lib/constants";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-/* Mini graphic headers — one per story card */
+/* Mini graphic headers — dark "UI mockup" elements on light cards */
 function HireGraphic() {
   return (
-    <div className="bg-navy-lighter rounded-md p-3 mb-5">
+    <div className="bg-navy rounded-md p-3 mb-5">
       <div className="flex items-center gap-2 mb-2">
         <span className="text-[10px] font-heading font-semibold text-text-on-dark-muted uppercase tracking-wider">
           RTW Status
@@ -28,7 +28,7 @@ function HireGraphic() {
 
 function TradesGraphic() {
   return (
-    <div className="bg-navy-lighter rounded-md p-3 mb-5">
+    <div className="bg-navy rounded-md p-3 mb-5">
       <div className="flex items-center gap-2 mb-2">
         <span className="text-[10px] font-heading font-semibold text-text-on-dark-muted uppercase tracking-wider">
           Identity Check
@@ -48,7 +48,7 @@ function TradesGraphic() {
 
 function CareGraphic() {
   return (
-    <div className="bg-navy-lighter rounded-md p-3 mb-5">
+    <div className="bg-navy rounded-md p-3 mb-5">
       <div className="flex items-center gap-2 mb-2">
         <span className="text-[10px] font-heading font-semibold text-text-on-dark-muted uppercase tracking-wider">
           Staff on Shift
@@ -57,7 +57,7 @@ function CareGraphic() {
       <div className="flex items-center gap-3">
         {["?", "?", "?"].map((q, i) => (
           <div key={i} className="flex items-center gap-1.5">
-            <span className="w-5 h-5 rounded-full bg-navy border border-navy-border flex items-center justify-center text-text-on-dark-muted text-[10px] font-bold">
+            <span className="w-5 h-5 rounded-full bg-navy-lighter border border-navy-border flex items-center justify-center text-text-on-dark-muted text-[10px] font-bold">
               {q}
             </span>
             <span className="text-[10px] text-text-on-dark-muted">Unknown</span>
@@ -70,7 +70,7 @@ function CareGraphic() {
 
 function TempGraphic() {
   return (
-    <div className="bg-navy-lighter rounded-md p-3 mb-5">
+    <div className="bg-navy rounded-md p-3 mb-5">
       <div className="flex items-center gap-2 mb-2">
         <span className="text-[10px] font-heading font-semibold text-text-on-dark-muted uppercase tracking-wider">
           Access Badge
@@ -92,14 +92,14 @@ const GRAPHICS = [HireGraphic, TradesGraphic, CareGraphic, TempGraphic];
 
 export function FourStories() {
   return (
-    <section className="section-dark">
+    <section className="section-light">
       <div className="section-container py-20 lg:py-28">
         <ScrollReveal>
           <SectionHeader
             badge="The Trust Problem"
             title="Every Business Runs on Trust. That Trust Is Broken."
             align="center"
-            dark={true}
+            dark={false}
           />
         </ScrollReveal>
 
@@ -110,15 +110,15 @@ export function FourStories() {
               <ScrollReveal key={story.title} delay={index * 100}>
                 <Link
                   href={story.href}
-                  className="group block bg-navy-light border border-navy-border rounded-sm overflow-hidden hover:border-certifyd-blue/30 hover:shadow-lg hover:shadow-certifyd-blue/5 hover:-translate-y-1 transition-all duration-300 h-full"
+                  className="group block bg-white border border-warm-border rounded-sm overflow-hidden hover:border-certifyd-blue/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full"
                 >
                   <div className="p-6">
                     {Graphic && <Graphic />}
 
-                    <h3 className="font-heading text-base font-semibold text-text-on-dark mb-3">
+                    <h3 className="font-heading text-base font-semibold text-text-on-light mb-3">
                       {story.title}
                     </h3>
-                    <p className="text-text-on-dark-muted text-sm leading-relaxed mb-4">
+                    <p className="text-text-on-light-muted text-sm leading-relaxed mb-4">
                       {story.story}
                     </p>
                     <p className="font-heading text-sm font-bold text-accent-warning mb-4">

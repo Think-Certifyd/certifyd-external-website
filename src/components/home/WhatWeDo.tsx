@@ -4,6 +4,20 @@ import Link from "next/link";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
+/* ── Certifyd "C" icon (inline SVG from brand assets) ── */
+function CertifydIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 1388 1388" fill="none">
+      <rect x="236.629" y="243.054" width="1149.87" height="1127.91" fill="#0059FF" />
+      <rect x="-4.924" y="1.5" width="1149.87" height="1127.91" fill="#0059FF" />
+      <rect x="284.719" y="291.144" width="812.137" height="781.491" fill="white" />
+      <rect x="476.684" y="483.108" width="428.209" height="406.25" fill="#0059FF" />
+      <rect x="608.441" y="592.906" width="164.696" height="186.655" fill="white" />
+      <rect x="696" y="648" width="226" height="77" fill="white" />
+    </svg>
+  );
+}
+
 /* ── Mini mock UI previews ─────────────────────────────────── */
 
 function QRPreview() {
@@ -20,21 +34,29 @@ function QRPreview() {
       </div>
       {/* CSS QR code pattern */}
       <div className="flex items-center justify-center py-3">
-        <div className="grid grid-cols-7 gap-[3px] w-20 h-20">
-          {[
-            1,1,1,0,1,1,1,
-            1,0,1,1,1,0,1,
-            1,1,1,0,1,1,1,
-            0,1,0,1,0,1,0,
-            1,1,1,0,1,1,1,
-            1,0,1,1,1,0,1,
-            1,1,1,0,1,1,1,
-          ].map((filled, i) => (
-            <div
-              key={i}
-              className={filled ? "bg-certifyd-blue rounded-[1px]" : "bg-transparent"}
-            />
-          ))}
+        <div className="relative">
+          <div className="grid grid-cols-7 gap-[3px] w-20 h-20">
+            {[
+              1,1,1,0,1,1,1,
+              1,0,1,1,1,0,1,
+              1,1,1,0,1,1,1,
+              0,1,0,1,0,1,0,
+              1,1,1,0,1,1,1,
+              1,0,1,1,1,0,1,
+              1,1,1,0,1,1,1,
+            ].map((filled, i) => (
+              <div
+                key={i}
+                className={filled ? "bg-certifyd-blue rounded-[1px]" : "bg-transparent"}
+              />
+            ))}
+          </div>
+          {/* Certifyd icon overlay in centre */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-6 h-6 rounded-sm bg-white flex items-center justify-center">
+              <CertifydIcon className="w-5 h-5" />
+            </div>
+          </div>
         </div>
       </div>
       <div className="text-center">
