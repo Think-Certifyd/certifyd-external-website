@@ -4,6 +4,7 @@ import { ProblemSection } from "@/components/solutions/ProblemSection";
 import { SolutionSteps } from "@/components/solutions/SolutionSteps";
 import { SolutionCTA } from "@/components/solutions/SolutionCTA";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { WorkforceCompliance } from "@/components/graphics/WorkforceCompliance";
 
 export const metadata: Metadata = {
   title: "Temporary Workers & Workforce Compliance",
@@ -25,7 +26,9 @@ export default function WorkforcePage() {
         badge="Workforce"
         title="Audit-Ready in One Click"
         subtitle="5.5 million UK SMEs face the same fines as FTSE 250 companies. Most have no HR department."
-      />
+      >
+        <WorkforceCompliance />
+      </SolutionHero>
 
       <ProblemSection
         problems={[

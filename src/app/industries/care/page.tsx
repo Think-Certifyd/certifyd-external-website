@@ -3,6 +3,7 @@ import { SolutionHero } from "@/components/solutions/SolutionHero";
 import { ProblemSection } from "@/components/solutions/ProblemSection";
 import { SolutionSteps } from "@/components/solutions/SolutionSteps";
 import { SolutionCTA } from "@/components/solutions/SolutionCTA";
+import { ShiftMonitor } from "@/components/graphics/ShiftMonitor";
 
 export const metadata: Metadata = {
   title: "Care Homes & Vulnerable Populations",
@@ -25,7 +26,9 @@ export default function CarePage() {
         badge="Care Homes"
         title="Know Who's Looking After Your Family"
         subtitle="Rotating agency staff. Vulnerable residents. Families left in the dark."
-      />
+      >
+        <ShiftMonitor />
+      </SolutionHero>
 
       <ProblemSection
         problems={[

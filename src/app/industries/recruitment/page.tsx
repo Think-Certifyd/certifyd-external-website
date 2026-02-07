@@ -3,6 +3,7 @@ import { SolutionHero } from "@/components/solutions/SolutionHero";
 import { ProblemSection } from "@/components/solutions/ProblemSection";
 import { WithWithout } from "@/components/solutions/WithWithout";
 import { SolutionCTA } from "@/components/solutions/SolutionCTA";
+import { RecruitmentScreening } from "@/components/graphics/RecruitmentScreening";
 
 export const metadata: Metadata = {
   title: "Recruitment & Right-to-Work",
@@ -17,7 +18,9 @@ export default function RecruitmentPage() {
         badge="Recruitment"
         title="From 3 Weeks of Wasted Time to 30 Seconds"
         subtitle="Pre-screen right-to-work status at application stage. Before interviews. Before emotional investment. Before fines."
-      />
+      >
+        <RecruitmentScreening />
+      </SolutionHero>
 
       <ProblemSection
         problems={[

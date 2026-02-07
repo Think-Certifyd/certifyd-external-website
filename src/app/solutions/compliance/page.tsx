@@ -4,6 +4,7 @@ import { SolutionHero } from "@/components/solutions/SolutionHero";
 import { SolutionSteps } from "@/components/solutions/SolutionSteps";
 import { SolutionCTA } from "@/components/solutions/SolutionCTA";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ComplianceDash } from "@/components/graphics/ComplianceDash";
 
 export const metadata: Metadata = {
   title: "Audit-Ready Compliance",
@@ -55,7 +56,9 @@ export default function CompliancePage() {
         badge="Compliance"
         title="Audit-Ready in One Click"
         subtitle="See who's verified, who's pending, and your compliance score. One-click reports when the regulator arrives."
-      />
+      >
+        <ComplianceDash />
+      </SolutionHero>
 
       <SolutionSteps steps={howItWorks} title="How It Works" />
 

@@ -4,6 +4,7 @@ import { SolutionHero } from "@/components/solutions/SolutionHero";
 import { SolutionSteps } from "@/components/solutions/SolutionSteps";
 import { SolutionCTA } from "@/components/solutions/SolutionCTA";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { QRScanGraphic } from "@/components/graphics/QRScanGraphic";
 
 export const metadata: Metadata = {
   title: "Certify That Person",
@@ -55,7 +56,9 @@ export default function CertifyPersonPage() {
         badge="Certify That Person"
         title="Two-Way Identity Verification in 30 Seconds"
         subtitle="Synchronous, real-time, person-to-person authentication. Both parties verify. Both parties know."
-      />
+      >
+        <QRScanGraphic />
+      </SolutionHero>
 
       <SolutionSteps steps={howItWorks} title="How It Works" />
 

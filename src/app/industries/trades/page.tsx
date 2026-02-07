@@ -4,6 +4,7 @@ import { ProblemSection } from "@/components/solutions/ProblemSection";
 import { SolutionSteps } from "@/components/solutions/SolutionSteps";
 import { SolutionCTA } from "@/components/solutions/SolutionCTA";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { DoorVerification } from "@/components/graphics/DoorVerification";
 
 export const metadata: Metadata = {
   title: "Trades & Physical Access",
@@ -55,7 +56,9 @@ export default function TradesPage() {
         badge="Trades & Access"
         title="Know Who's at Your Door"
         subtitle="Zero regulation for tradespeople entering your home in the UK. Certifyd changes that."
-      />
+      >
+        <DoorVerification />
+      </SolutionHero>
 
       <ProblemSection
         problems={[

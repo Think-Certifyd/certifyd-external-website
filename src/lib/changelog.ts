@@ -3,6 +3,34 @@ import type { ChangelogEntry } from "@/types";
 export const CHANGELOG: ChangelogEntry[] = [
   {
     date: "2026-02-07",
+    version: "1.4.0",
+    title: "Hero graphics for all industry and solution pages",
+    summary:
+      "Every industry and solution page now has a unique, page-specific mock UI graphic in its hero section. SolutionHero upgraded with optional split layout. Seven new graphic components created.",
+    changes: [
+      {
+        category: "added",
+        items: [
+          "Recruitment hero: Applicant Screening feed with RTW status pills",
+          "Trades hero: Door Verification confirmation card",
+          "Care hero: Shift Monitor with staff roster and family view badge",
+          "Workforce hero: Mini compliance dashboard with audit report badge",
+          "Person hero: Overlapping phone mockups with real app screenshots",
+          "Business hero: Team verification roster with compliance bar",
+          "Compliance hero: Full dashboard with weekly trend chart and report button",
+        ],
+      },
+      {
+        category: "changed",
+        items: [
+          "SolutionHero component now accepts optional children prop for split layout",
+          "All 7 sub-page heroes upgraded from text-only to split layout with graphics",
+        ],
+      },
+    ],
+  },
+  {
+    date: "2026-02-07",
     version: "1.3.0",
     title: "Visual upgrade — creative graphics and mock UI elements",
     summary:

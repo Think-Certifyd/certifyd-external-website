@@ -2,9 +2,10 @@ interface SolutionHeroProps {
   title: string;
   subtitle: string;
   badge?: string;
+  children?: React.ReactNode;
 }
 
-export function SolutionHero({ title, subtitle, badge }: SolutionHeroProps) {
+export function SolutionHero({ title, subtitle, badge, children }: SolutionHeroProps) {
   return (
     <section className="relative bg-navy bg-grid-pattern pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
       {/* Dramatic gradient */}
@@ -21,17 +22,43 @@ export function SolutionHero({ title, subtitle, badge }: SolutionHeroProps) {
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-certifyd-blue/40 to-transparent" />
 
       <div className="section-container relative z-10">
-        {badge && (
-          <span className="inline-block px-3 py-1 text-xs font-heading font-medium rounded-full bg-certifyd-blue/15 text-certifyd-blue mb-6">
-            {badge}
-          </span>
+        {children ? (
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            {/* Left — Text */}
+            <div className="lg:w-1/2">
+              {badge && (
+                <span className="inline-block px-3 py-1 text-xs font-heading font-medium rounded-full bg-certifyd-blue/15 text-certifyd-blue mb-6">
+                  {badge}
+                </span>
+              )}
+              <h1 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-text-on-dark animate-fade-in">
+                {title}
+              </h1>
+              <p className="text-lg lg:text-xl text-text-on-dark-muted max-w-xl mt-6 animate-slide-up animation-delay-200">
+                {subtitle}
+              </p>
+            </div>
+
+            {/* Right — Visual */}
+            <div className="lg:w-1/2 w-full max-w-md lg:max-w-none animate-slide-up animation-delay-300">
+              {children}
+            </div>
+          </div>
+        ) : (
+          <>
+            {badge && (
+              <span className="inline-block px-3 py-1 text-xs font-heading font-medium rounded-full bg-certifyd-blue/15 text-certifyd-blue mb-6">
+                {badge}
+              </span>
+            )}
+            <h1 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-bold max-w-4xl leading-tight text-text-on-dark animate-fade-in">
+              {title}
+            </h1>
+            <p className="text-lg lg:text-xl text-text-on-dark-muted max-w-2xl mt-6 animate-slide-up animation-delay-200">
+              {subtitle}
+            </p>
+          </>
         )}
-        <h1 className="font-heading text-4xl lg:text-5xl xl:text-6xl font-bold max-w-4xl leading-tight text-text-on-dark animate-fade-in">
-          {title}
-        </h1>
-        <p className="text-lg lg:text-xl text-text-on-dark-muted max-w-2xl mt-6 animate-slide-up animation-delay-200">
-          {subtitle}
-        </p>
       </div>
     </section>
   );

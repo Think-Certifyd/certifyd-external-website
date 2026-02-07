@@ -4,6 +4,7 @@ import { SolutionHero } from "@/components/solutions/SolutionHero";
 import { SolutionSteps } from "@/components/solutions/SolutionSteps";
 import { SolutionCTA } from "@/components/solutions/SolutionCTA";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { TeamVerification } from "@/components/graphics/TeamVerification";
 
 export const metadata: Metadata = {
   title: "Certify That Business",
@@ -55,7 +56,9 @@ export default function CertifyBusinessPage() {
         badge="Certify That Business"
         title="Build a Verified Workforce"
         subtitle="Create your business profile. Add your team. Every employee verified. Every contractor checked."
-      />
+      >
+        <TeamVerification />
+      </SolutionHero>
 
       <SolutionSteps steps={howItWorks} title="How It Works" />
 
