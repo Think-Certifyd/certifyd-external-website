@@ -3,9 +3,16 @@ import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Blog — Identity Verification, Compliance & Trust Insights",
   description:
-    "Insights on identity verification, compliance, and building trust in business.",
+    "Insights on identity verification, right-to-work compliance, deepfake threats, and building trust in UK businesses. Expert analysis from the Certifyd team.",
+  alternates: { canonical: "/blog/" },
+  openGraph: {
+    title: "Certifyd Blog — Identity Verification & Compliance Insights",
+    description:
+      "Expert insights on identity verification, right-to-work compliance, and building trust in UK businesses.",
+    url: "https://www.certifyd.io/blog/",
+  },
 };
 
 export default function BlogPage() {

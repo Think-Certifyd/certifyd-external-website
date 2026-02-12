@@ -4,9 +4,16 @@ import { TeamCards } from "@/components/about/TeamCards";
 import { Vision } from "@/components/about/Vision";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Certifyd — Identity Verification Leadership Team",
   description:
-    "Built by people who understand what's at stake. Meet the team behind Certifyd.",
+    "Meet the team behind Certifyd. Deep experience building mission-critical infrastructure for the world's largest institutions — now solving identity verification for every business.",
+  alternates: { canonical: "/about/" },
+  openGraph: {
+    title: "About Certifyd — Identity Verification Leadership Team",
+    description:
+      "Meet the team behind Certifyd. Deep experience building mission-critical infrastructure — now solving identity verification for every business.",
+    url: "https://www.certifyd.io/about/",
+  },
 };
 
 export default function AboutPage() {

@@ -3,13 +3,21 @@ import Link from "next/link";
 import { SolutionHero } from "@/components/solutions/SolutionHero";
 import { SolutionSteps } from "@/components/solutions/SolutionSteps";
 import { SolutionCTA } from "@/components/solutions/SolutionCTA";
+import { RelatedContent } from "@/components/solutions/RelatedContent";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ComplianceDash } from "@/components/graphics/ComplianceDash";
 
 export const metadata: Metadata = {
-  title: "Audit-Ready Compliance",
+  title: "Audit-Ready Compliance — One-Click Compliance Reports",
   description:
-    "See who's verified, who's pending, and your compliance score. One-click reports when the regulator arrives.",
+    "See who's verified, who's pending, and your compliance score. One-click reports when the regulator arrives. Built for UK SMEs.",
+  alternates: { canonical: "/solutions/compliance/" },
+  openGraph: {
+    title: "Audit-Ready Compliance — One-Click Reports",
+    description:
+      "Real-time compliance dashboard. One-click reports when the regulator arrives. Built for UK SMEs.",
+    url: "https://www.certifyd.io/solutions/compliance/",
+  },
 };
 
 const howItWorks = [
@@ -144,6 +152,22 @@ export default function CompliancePage() {
           </ScrollReveal>
         </div>
       </section>
+
+      <RelatedContent
+        solutions={[
+          { label: "Certify That Person", href: "/solutions/person/" },
+          { label: "Certify That Business", href: "/solutions/business/" },
+        ]}
+        articles={[
+          { label: "How to Prepare for a Walk-In Compliance Audit", href: "/blog/walk-in-compliance-audit-prep/" },
+          { label: "Why Audit Trails Matter for Compliance", href: "/blog/audit-trails-compliance/" },
+          { label: "The Fair Work Agency: What You Need to Know", href: "/blog/fair-work-agency-april-2026/" },
+        ]}
+        resources={[
+          { label: "GOV.UK — Right to Work Checks: Employer Guide", href: "https://www.gov.uk/government/publications/right-to-work-checks-employers-guide", external: true },
+          { label: "GOV.UK — Penalties for Employing Illegal Workers", href: "https://www.gov.uk/government/publications/illegal-working-penalties", external: true },
+        ]}
+      />
 
       <SolutionCTA title="Get compliance without HR headcount" />
     </>

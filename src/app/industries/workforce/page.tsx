@@ -3,13 +3,21 @@ import { SolutionHero } from "@/components/solutions/SolutionHero";
 import { ProblemSection } from "@/components/solutions/ProblemSection";
 import { SolutionSteps } from "@/components/solutions/SolutionSteps";
 import { SolutionCTA } from "@/components/solutions/SolutionCTA";
+import { RelatedContent } from "@/components/solutions/RelatedContent";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { WorkforceCompliance } from "@/components/graphics/WorkforceCompliance";
 
 export const metadata: Metadata = {
-  title: "Temporary Workers & Workforce Compliance",
+  title: "Temporary Workers & Workforce Compliance for SMEs",
   description:
-    "5.5 million UK SMEs face the same fines as FTSE 250 companies. Most have no HR department.",
+    "5.5 million UK SMEs face the same fines as FTSE 250 companies. Most have no HR department. Certifyd gives you audit-ready compliance without the headcount.",
+  alternates: { canonical: "/industries/workforce/" },
+  openGraph: {
+    title: "Workforce Compliance for UK SMEs | Certifyd",
+    description:
+      "5.5 million UK SMEs face the same fines as FTSE 250 companies. Get audit-ready compliance without the HR headcount.",
+    url: "https://www.certifyd.io/industries/workforce/",
+  },
 };
 
 const howItWorksSteps = [
@@ -58,6 +66,22 @@ export default function WorkforcePage() {
           </ScrollReveal>
         </div>
       </section>
+
+      <RelatedContent
+        solutions={[
+          { label: "Certify That Business", href: "/solutions/business/" },
+          { label: "Audit-Ready Compliance", href: "/solutions/compliance/" },
+        ]}
+        articles={[
+          { label: "The Temp Worker Loophole", href: "/blog/temp-worker-loophole/" },
+          { label: "Enterprise Compliance at SME Prices", href: "/blog/enterprise-compliance-sme-prices/" },
+          { label: "The Fair Work Agency: What You Need to Know", href: "/blog/fair-work-agency-april-2026/" },
+        ]}
+        resources={[
+          { label: "GOV.UK — Right to Work Checks: Employer Guide", href: "https://www.gov.uk/government/publications/right-to-work-checks-employers-guide", external: true },
+          { label: "GOV.UK — Employment Agency Standards", href: "https://www.gov.uk/employment-agency-and-employment-business-regulations", external: true },
+        ]}
+      />
 
       <SolutionCTA title="Get compliance without HR headcount" />
     </>

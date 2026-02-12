@@ -3,12 +3,20 @@ import { SolutionHero } from "@/components/solutions/SolutionHero";
 import { ProblemSection } from "@/components/solutions/ProblemSection";
 import { SolutionSteps } from "@/components/solutions/SolutionSteps";
 import { SolutionCTA } from "@/components/solutions/SolutionCTA";
+import { RelatedContent } from "@/components/solutions/RelatedContent";
 import { ShiftMonitor } from "@/components/graphics/ShiftMonitor";
 
 export const metadata: Metadata = {
-  title: "Care Homes & Vulnerable Populations",
+  title: "Care Homes & Vulnerable Populations — Staff Verification",
   description:
-    "Rotating agency staff. Vulnerable residents. Families left in the dark. Certifyd changes that.",
+    "Rotating agency staff. Vulnerable residents. Families left in the dark. Certifyd changes that with real-time staff verification and CQC-ready audit trails.",
+  alternates: { canonical: "/industries/care/" },
+  openGraph: {
+    title: "Care Home Staff Verification | Certifyd",
+    description:
+      "Real-time staff verification for care homes. Know who's looking after your family. CQC-ready audit trails.",
+    url: "https://www.certifyd.io/industries/care/",
+  },
 };
 
 export default function CarePage() {
@@ -41,6 +49,22 @@ export default function CarePage() {
       />
 
       <SolutionSteps steps={howItWorksSteps} />
+
+      <RelatedContent
+        solutions={[
+          { label: "Certify That Person", href: "/solutions/person/" },
+          { label: "Audit-Ready Compliance", href: "/solutions/compliance/" },
+        ]}
+        articles={[
+          { label: "The Care Home Staffing Crisis", href: "/blog/care-home-staffing-crisis/" },
+          { label: "The Safeguarding Gap in Care Homes", href: "/blog/safeguarding-gap-care-homes/" },
+          { label: "Why Audit Trails Matter for Compliance", href: "/blog/audit-trails-compliance/" },
+        ]}
+        resources={[
+          { label: "CQC — Regulation 19: Fit and Proper Persons Employed", href: "https://www.cqc.org.uk/guidance-providers/regulations/regulation-19-fit-proper-persons-employed", external: true },
+          { label: "CQC — Safeguarding People", href: "https://www.cqc.org.uk/guidance-providers/all-services/safeguarding-people", external: true },
+        ]}
+      />
 
       <SolutionCTA title="Protect your residents" />
     </>

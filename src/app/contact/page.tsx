@@ -3,9 +3,16 @@ import { ContactForm } from "@/components/contact/ContactForm";
 import { ContactInfo } from "@/components/contact/ContactInfo";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact Certifyd — Book a Demo",
   description:
-    "Get in touch with the Certifyd team. We'd love to hear about your identity verification needs.",
+    "Get in touch with the Certifyd team. Book a demo to see how identity verification can protect your recruitment, workforce, and compliance processes.",
+  alternates: { canonical: "/contact/" },
+  openGraph: {
+    title: "Contact Certifyd — Book a Demo",
+    description:
+      "Book a demo to see how Certifyd's identity verification protects your recruitment, workforce, and compliance processes.",
+    url: "https://www.certifyd.io/contact/",
+  },
 };
 
 export default function ContactPage() {

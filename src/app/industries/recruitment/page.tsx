@@ -3,12 +3,20 @@ import { SolutionHero } from "@/components/solutions/SolutionHero";
 import { ProblemSection } from "@/components/solutions/ProblemSection";
 import { WithWithout } from "@/components/solutions/WithWithout";
 import { SolutionCTA } from "@/components/solutions/SolutionCTA";
+import { RelatedContent } from "@/components/solutions/RelatedContent";
 import { RecruitmentScreening } from "@/components/graphics/RecruitmentScreening";
 
 export const metadata: Metadata = {
-  title: "Recruitment & Right-to-Work",
+  title: "Recruitment & Right-to-Work Verification",
   description:
-    "Pre-screen right-to-work status at application stage. Before interviews. Before emotional investment. Before fines.",
+    "Pre-screen right-to-work status at application stage. Before interviews. Before emotional investment. Before fines. Avoid up to £60,000 civil penalties.",
+  alternates: { canonical: "/industries/recruitment/" },
+  openGraph: {
+    title: "Recruitment & Right-to-Work Verification | Certifyd",
+    description:
+      "Pre-screen right-to-work status at application stage. Avoid up to £60,000 civil penalties per illegal worker.",
+    url: "https://www.certifyd.io/industries/recruitment/",
+  },
 };
 
 export default function RecruitmentPage() {
@@ -47,6 +55,23 @@ export default function RecruitmentPage() {
           "Filter before investing time",
           "Interview only qualified candidates",
           "Audit trail automatic and complete",
+        ]}
+      />
+
+      <RelatedContent
+        solutions={[
+          { label: "Certify That Person", href: "/solutions/person/" },
+          { label: "Audit-Ready Compliance", href: "/solutions/compliance/" },
+        ]}
+        articles={[
+          { label: "The Real Cost of a Bad Hire", href: "/blog/real-cost-bad-hire/" },
+          { label: "5 Signs Your Right-to-Work Process Has Gaps", href: "/blog/right-to-work-gap-signs/" },
+          { label: "Deepfake Candidates: The New Recruitment Threat", href: "/blog/deepfake-candidates-recruitment/" },
+        ]}
+        resources={[
+          { label: "GOV.UK — Right to Work Checks: Employer Guide", href: "https://www.gov.uk/government/publications/right-to-work-checks-employers-guide", external: true },
+          { label: "GOV.UK — Penalties for Employing Illegal Workers", href: "https://www.gov.uk/government/publications/illegal-working-penalties", external: true },
+          { label: "ACAS — Recruitment and Induction", href: "https://www.acas.org.uk/hiring-someone", external: true },
         ]}
       />
 

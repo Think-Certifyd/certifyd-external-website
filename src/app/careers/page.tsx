@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Careers",
+  title: "Careers at Certifyd — Join the Identity Verification Team",
   description:
-    "Join the Certifyd team. We're building the identity layer for businesses.",
+    "Join Certifyd and build identity verification infrastructure for UK businesses. London-based team with deep institutional experience.",
+  alternates: { canonical: "/careers/" },
+  openGraph: {
+    title: "Careers at Certifyd",
+    description:
+      "Join Certifyd and build identity verification infrastructure for UK businesses.",
+    url: "https://www.certifyd.io/careers/",
+  },
 };
 
 export default function CareersPage() {

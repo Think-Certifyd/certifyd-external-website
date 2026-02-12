@@ -3,13 +3,21 @@ import { SolutionHero } from "@/components/solutions/SolutionHero";
 import { ProblemSection } from "@/components/solutions/ProblemSection";
 import { SolutionSteps } from "@/components/solutions/SolutionSteps";
 import { SolutionCTA } from "@/components/solutions/SolutionCTA";
+import { RelatedContent } from "@/components/solutions/RelatedContent";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { DoorVerification } from "@/components/graphics/DoorVerification";
 
 export const metadata: Metadata = {
-  title: "Trades & Physical Access",
+  title: "Trades & Physical Access — Verify Tradespeople Instantly",
   description:
-    "Zero regulation for tradespeople entering your home in the UK. Certifyd changes that.",
+    "Zero regulation for tradespeople entering your home in the UK. Certifyd changes that. Instant identity verification for homeowners and trade platforms.",
+  alternates: { canonical: "/industries/trades/" },
+  openGraph: {
+    title: "Trades & Physical Access — Verify Tradespeople Instantly",
+    description:
+      "Zero regulation for tradespeople entering your home in the UK. Certifyd changes that with instant identity verification.",
+    url: "https://www.certifyd.io/industries/trades/",
+  },
 };
 
 const howItWorksSteps = [
@@ -129,6 +137,22 @@ export default function TradesPage() {
           </ScrollReveal>
         </div>
       </section>
+
+      <RelatedContent
+        solutions={[
+          { label: "Certify That Person", href: "/solutions/person/" },
+          { label: "Certify That Business", href: "/solutions/business/" },
+        ]}
+        articles={[
+          { label: "The Doorstep Fraud Problem", href: "/blog/doorstep-fraud-problem/" },
+          { label: "Trade Platforms' Blind Spot", href: "/blog/trade-platforms-blind-spot/" },
+          { label: "Who's Really at Your Door?", href: "/blog/whos-really-at-your-door/" },
+        ]}
+        resources={[
+          { label: "Citizens Advice — Doorstep Scams", href: "https://www.citizensadvice.org.uk/consumer/scams/check-if-something-might-be-a-scam/", external: true },
+          { label: "Trading Standards — Rogue Traders", href: "https://www.tradingstandards.uk/consumers/support-and-advice/roguetraders/", external: true },
+        ]}
+      />
 
       <SolutionCTA title="Bring verification to your platform" />
     </>

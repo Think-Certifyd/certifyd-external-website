@@ -3,13 +3,21 @@ import Link from "next/link";
 import { SolutionHero } from "@/components/solutions/SolutionHero";
 import { SolutionSteps } from "@/components/solutions/SolutionSteps";
 import { SolutionCTA } from "@/components/solutions/SolutionCTA";
+import { RelatedContent } from "@/components/solutions/RelatedContent";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { TeamVerification } from "@/components/graphics/TeamVerification";
 
 export const metadata: Metadata = {
-  title: "Certify That Business",
+  title: "Certify That Business — Verified Workforce Management",
   description:
-    "Create your business profile. Add your team. Every employee verified. Every contractor checked.",
+    "Create your business profile. Add your team. Every employee verified. Every contractor checked. Show clients and regulators a trusted workforce.",
+  alternates: { canonical: "/solutions/business/" },
+  openGraph: {
+    title: "Certify That Business — Verified Workforce Management",
+    description:
+      "Create your business profile. Every employee verified. Every contractor checked.",
+    url: "https://www.certifyd.io/solutions/business/",
+  },
 };
 
 const howItWorks = [
@@ -144,6 +152,18 @@ export default function CertifyBusinessPage() {
           </ScrollReveal>
         </div>
       </section>
+
+      <RelatedContent
+        solutions={[
+          { label: "Certify That Person", href: "/solutions/person/" },
+          { label: "Audit-Ready Compliance", href: "/solutions/compliance/" },
+        ]}
+        articles={[
+          { label: "Enterprise Compliance at SME Prices", href: "/blog/enterprise-compliance-sme-prices/" },
+          { label: "What Is Identity-as-Infrastructure?", href: "/blog/identity-as-infrastructure/" },
+          { label: "The Temp Worker Loophole", href: "/blog/temp-worker-loophole/" },
+        ]}
+      />
 
       <SolutionCTA title="Build trust into your workforce" />
     </>

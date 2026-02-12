@@ -3,13 +3,21 @@ import Link from "next/link";
 import { SolutionHero } from "@/components/solutions/SolutionHero";
 import { SolutionSteps } from "@/components/solutions/SolutionSteps";
 import { SolutionCTA } from "@/components/solutions/SolutionCTA";
+import { RelatedContent } from "@/components/solutions/RelatedContent";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { QRScanGraphic } from "@/components/graphics/QRScanGraphic";
 
 export const metadata: Metadata = {
-  title: "Certify That Person",
+  title: "Certify That Person — Two-Way Identity Verification in 30 Seconds",
   description:
-    "Two-way, real-time identity verification in 30 seconds. Both parties verify. Both parties know.",
+    "Two-way, real-time identity verification in 30 seconds. Both parties verify. Both parties know. Auditable records created automatically.",
+  alternates: { canonical: "/solutions/person/" },
+  openGraph: {
+    title: "Certify That Person — Two-Way Identity Verification",
+    description:
+      "Two-way, real-time identity verification in 30 seconds. Both parties verify. Both parties know.",
+    url: "https://www.certifyd.io/solutions/person/",
+  },
 };
 
 const howItWorks = [
@@ -144,6 +152,18 @@ export default function CertifyPersonPage() {
           </ScrollReveal>
         </div>
       </section>
+
+      <RelatedContent
+        solutions={[
+          { label: "Certify That Business", href: "/solutions/business/" },
+          { label: "Audit-Ready Compliance", href: "/solutions/compliance/" },
+        ]}
+        articles={[
+          { label: "Two-Way Verification Explained", href: "/blog/two-way-verification-explained/" },
+          { label: "The Arup Deepfake Attack: Lessons for Every Business", href: "/blog/arup-deepfake-attack/" },
+          { label: "Platform-Agnostic Verification", href: "/blog/platform-agnostic-verification/" },
+        ]}
+      />
 
       <SolutionCTA title="Verify the person, not just the paperwork" />
     </>

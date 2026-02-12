@@ -3,6 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllSlugs, getPostBySlug } from "@/lib/blog";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import {
+  BlogPostSchema,
+  BreadcrumbSchema,
+} from "@/components/seo/JsonLd";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -12,13 +16,29 @@ export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
   return {
     title: post.meta.title,
     description: post.meta.excerpt,
+    alternates: { canonical: `/blog/${slug}/` },
+    openGraph: {
+      title: post.meta.title,
+      description: post.meta.excerpt,
+      url: `https://www.certifyd.io/blog/${slug}/`,
+      type: "article",
+      publishedTime: post.meta.date,
+      authors: [post.meta.author],
+    },
+    twitter: {
+      card: "summary",
+      title: post.meta.title,
+      description: post.meta.excerpt,
+    },
   };
 }
 
@@ -29,6 +49,20 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <>
+      <BlogPostSchema
+        title={post.meta.title}
+        description={post.meta.excerpt}
+        slug={slug}
+        date={post.meta.date}
+        author={post.meta.author}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Blog", href: "/blog/" },
+          { name: post.meta.title, href: `/blog/${slug}/` },
+        ]}
+      />
       {/* Header */}
       <section className="section-dark bg-grid-pattern pt-32 pb-16">
         <div className="section-container max-w-3xl">
