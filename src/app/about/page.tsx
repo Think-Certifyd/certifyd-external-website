@@ -51,6 +51,90 @@ export default function AboutPage() {
       {/* Vision */}
       <Vision />
 
+      {/* What We Build */}
+      <section className="section-light border-t border-warm-border">
+        <div className="section-container">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
+            <div>
+              <h3 className="font-heading text-xs font-semibold uppercase tracking-wider text-text-on-light-muted mb-4">
+                Our Solutions
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link
+                    href="/solutions/person/"
+                    className="text-sm text-text-on-light hover:text-certifyd-blue transition-colors"
+                  >
+                    Certify That Person &rarr;
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/solutions/business/"
+                    className="text-sm text-text-on-light hover:text-certifyd-blue transition-colors"
+                  >
+                    Certify That Business &rarr;
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/solutions/compliance/"
+                    className="text-sm text-text-on-light hover:text-certifyd-blue transition-colors"
+                  >
+                    Audit-Ready Compliance &rarr;
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-heading text-xs font-semibold uppercase tracking-wider text-text-on-light-muted mb-4">
+                From Our Blog
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link
+                    href="/blog/identity-as-infrastructure/"
+                    className="text-sm text-text-on-light hover:text-certifyd-blue transition-colors"
+                  >
+                    What Is Identity-as-Infrastructure? &rarr;
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/blog/trust-layer-missing/"
+                    className="text-sm text-text-on-light hover:text-certifyd-blue transition-colors"
+                  >
+                    The Trust Layer That&apos;s Missing &rarr;
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/blog/welcome-to-certifyd/"
+                    className="text-sm text-text-on-light hover:text-certifyd-blue transition-colors"
+                  >
+                    Welcome to Certifyd &rarr;
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-heading text-xs font-semibold uppercase tracking-wider text-text-on-light-muted mb-4">
+                Get In Touch
+              </h3>
+              <p className="text-sm text-text-on-light-muted mb-4">
+                Want to learn more about how we can help your business?
+              </p>
+              <Link
+                href="/contact/"
+                className="inline-block text-sm text-certifyd-blue font-medium hover:text-certifyd-blue-light transition-colors"
+              >
+                Book a Demo &rarr;
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Careers CTA */}
       <section className="section-dark">
         <div className="section-container text-center">
