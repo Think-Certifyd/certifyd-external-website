@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
+import { getAllForPages } from "@/lib/for-pages";
 
 export const dynamic = "force-static";
 
@@ -91,5 +92,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...blogPosts];
+  const forPages: MetadataRoute.Sitemap = getAllForPages().map((page) => ({
+    url: `${BASE_URL}/for/${page.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...forPages, ...blogPosts];
 }

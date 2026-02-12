@@ -102,6 +102,89 @@ export function BlogPostSchema({
   );
 }
 
+interface ServiceSchemaProps {
+  name: string;
+  description: string;
+  slug: string;
+}
+
+export function ServiceSchema({ name, description, slug }: ServiceSchemaProps) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    url: `${BASE_URL}/for/${slug}/`,
+    provider: {
+      "@type": "Organization",
+      name: COMPANY.name,
+      url: BASE_URL,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "United Kingdom",
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+interface FAQSchemaProps {
+  faqs: { question: string; answer: string }[];
+}
+
+export function FAQSchema({ faqs }: FAQSchemaProps) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+interface HowToSchemaProps {
+  name: string;
+  steps: string[];
+}
+
+export function HowToSchema({ name, steps }: HowToSchemaProps) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    step: steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      text: step,
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 interface BreadcrumbSchemaProps {
   items: { name: string; href: string }[];
 }
