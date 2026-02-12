@@ -13,6 +13,14 @@ const INDUSTRIES = [
   "Other",
 ];
 
+const INTERESTS = [
+  "Book a Demo",
+  "General Enquiry",
+  "Partnership",
+  "Investor Interest",
+  "Press / Media",
+];
+
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
@@ -151,6 +159,27 @@ export function ContactForm() {
           {INDUSTRIES.map((industry) => (
             <option key={industry} value={industry}>
               {industry}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label
+          htmlFor="interest"
+          className="block text-sm font-medium text-text-on-light mb-2"
+        >
+          I&apos;m interested in
+        </label>
+        <select
+          id="interest"
+          name="interest"
+          className="w-full px-4 py-3 bg-white border border-warm-border rounded-sm text-text-on-light focus:outline-none focus:border-certifyd-blue transition-colors"
+        >
+          <option value="">Select your interest</option>
+          {INTERESTS.map((interest) => (
+            <option key={interest} value={interest}>
+              {interest}
             </option>
           ))}
         </select>
