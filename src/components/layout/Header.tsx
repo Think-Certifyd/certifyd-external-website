@@ -253,19 +253,24 @@ export function Header() {
                           onMouseEnter={cancelClose}
                           onMouseLeave={scheduleClose}
                         >
-                          <div className="border-t border-white/[0.06] bg-navy shadow-2xl">
-                            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+                          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-2">
+                            <div className="rounded-sm border border-white/[0.08] bg-[#0d1528] shadow-2xl py-6 px-6">
                               <div
-                                className={`grid gap-10 ${
-                                  item.children!.length === 3 ? "grid-cols-3" : "grid-cols-4"
+                                className={`grid ${
+                                  item.children!.length === 3
+                                    ? "grid-cols-3 gap-4 max-w-3xl"
+                                    : "grid-cols-4 gap-4"
                                 }`}
                               >
-                                {item.children!.map((column) => {
+                                {item.children!.map((column, colIdx) => {
                                   const ColIcon = COLUMN_ICONS[column.label];
                                   return (
-                                    <div key={column.label}>
+                                    <div
+                                      key={column.label}
+                                      className={colIdx > 0 ? "border-l border-white/[0.06] pl-4" : ""}
+                                    >
                                       {/* Column header */}
-                                      <div className="flex items-center gap-2 mb-4 px-3">
+                                      <div className="flex items-center gap-2 mb-3 px-3">
                                         {ColIcon && (
                                           <ColIcon className="h-4 w-4 text-certifyd-blue" />
                                         )}
