@@ -15,10 +15,17 @@ const industryLinks = [
 ];
 
 const companyLinks = [
+  { label: "Home", href: "/" },
   { label: "About", href: "/about/" },
   { label: "Blog", href: "/blog/" },
   { label: "Contact", href: "/contact/" },
+  { label: "Security", href: "/security/" },
   { label: "Careers", href: "/careers/" },
+];
+
+const gettingStartedLinks = [
+  { label: "For Individuals", href: "/onboarding/person/" },
+  { label: "For Organisations", href: "/onboarding/organisation/" },
 ];
 
 export function Footer() {
@@ -26,9 +33,9 @@ export function Footer() {
     <footer className="bg-navy border-t border-navy-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8 lg:py-16">
+        <div className="grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 lg:grid-cols-6 lg:gap-8 lg:py-16">
           {/* Column 1: Logo + Tagline */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div className="sm:col-span-2 lg:col-span-2">
             <Link href="/" className="inline-block">
               <img
                 src="/logos/certifyd-logo-white.svg"
@@ -99,9 +106,25 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 5: Contact */}
+          {/* Column 5: Getting Started */}
           <div>
             <h3 className="mb-4 font-heading text-xs font-semibold uppercase tracking-wider text-text-on-dark-muted">
+              Getting Started
+            </h3>
+            <ul className="space-y-3">
+              {gettingStartedLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-text-on-dark-muted transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="mb-4 mt-8 font-heading text-xs font-semibold uppercase tracking-wider text-text-on-dark-muted">
               Contact
             </h3>
             <ul className="space-y-3">
@@ -112,11 +135,6 @@ export function Footer() {
                 >
                   {COMPANY.email}
                 </a>
-              </li>
-              <li>
-                <p className="text-sm leading-relaxed text-text-on-dark-muted">
-                  {COMPANY.address}
-                </p>
               </li>
               <li>
                 <a
@@ -142,11 +160,26 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-navy-border py-6">
-          <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:justify-between sm:text-left">
+          <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
             <p className="text-xs text-text-on-dark-muted">
               &copy; {new Date().getFullYear()} Certifyd Ltd. All rights
               reserved.
             </p>
+            <div className="flex items-center gap-4 text-xs text-text-on-dark-muted">
+              <Link
+                href="/privacy/"
+                className="transition-colors hover:text-white"
+              >
+                Privacy Policy
+              </Link>
+              <span className="text-navy-border">|</span>
+              <Link
+                href="/cookies/"
+                className="transition-colors hover:text-white"
+              >
+                Cookie Policy
+              </Link>
+            </div>
             <p className="text-xs text-text-on-dark-muted">
               {COMPANY.address}
             </p>

@@ -10,29 +10,120 @@ export const COMPANY = {
 } as const;
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "Home", href: "/" },
   {
-    label: "Solutions",
+    label: "Product",
     href: "/solutions",
     children: [
-      { label: "Certify That Person", href: "/solutions/person/" },
-      { label: "Certify That Business", href: "/solutions/business/" },
-      { label: "Audit-Ready Compliance", href: "/solutions/compliance/" },
+      { label: "Certify That Person", href: "/solutions/person/", description: "Two-way identity verification in 30 seconds" },
+      { label: "Certify That Business", href: "/solutions/business/", description: "Verify the organisations behind the people" },
+      { label: "Audit-Ready Compliance", href: "/solutions/compliance/", description: "One-click compliance reports" },
+      { label: "Security & Trust", href: "/security/", description: "How we protect your data" },
     ],
   },
   {
     label: "Industries",
     href: "/industries",
     children: [
-      { label: "Recruitment", href: "/industries/recruitment/" },
-      { label: "Trades", href: "/industries/trades/" },
-      { label: "Care Homes", href: "/industries/care/" },
-      { label: "Workforce", href: "/industries/workforce/" },
+      {
+        label: "Sectors",
+        href: "/industries",
+        children: [
+          { label: "Recruitment", href: "/industries/recruitment/" },
+          { label: "Trades & Home Access", href: "/industries/trades/" },
+          { label: "Care", href: "/industries/care/" },
+          { label: "Workforce", href: "/industries/workforce/" },
+        ],
+      },
+      {
+        label: "Roles",
+        href: "/for/cleaners/",
+        children: [
+          { label: "Cleaners", href: "/for/cleaners/" },
+          { label: "Electricians", href: "/for/electricians/" },
+          { label: "Plumbers", href: "/for/plumbers/" },
+          { label: "Builders", href: "/for/builders/" },
+          { label: "Care Workers", href: "/for/care-workers/" },
+          { label: "Security Guards", href: "/for/security-guards/" },
+          { label: "Delivery Drivers", href: "/for/delivery-drivers/" },
+          { label: "Temp Workers", href: "/for/temp-workers/" },
+          { label: "Warehouse Workers", href: "/for/warehouse-workers/" },
+          { label: "Hospitality Staff", href: "/for/hospitality-staff/" },
+          { label: "Agency Nurses", href: "/for/agency-nurses/" },
+          { label: "Remote Workers", href: "/for/remote-workers/" },
+        ],
+      },
+      {
+        label: "Business Types",
+        href: "/for/recruitment-agencies/",
+        children: [
+          { label: "Recruitment Agencies", href: "/for/recruitment-agencies/" },
+          { label: "Care Homes", href: "/for/care-homes/" },
+          { label: "Staffing Agencies", href: "/for/staffing-agencies/" },
+          { label: "Cleaning Companies", href: "/for/cleaning-companies/" },
+          { label: "Facilities Management", href: "/for/facilities-management/" },
+          { label: "Hospitality Businesses", href: "/for/hospitality-businesses/" },
+          { label: "Trade Platforms", href: "/for/trade-platforms/" },
+          { label: "Domiciliary Care", href: "/for/domiciliary-care/" },
+        ],
+      },
     ],
   },
-  { label: "About", href: "/about/" },
-  { label: "Blog", href: "/blog/" },
-  { label: "Contact", href: "/contact/" },
+  {
+    label: "Use Cases",
+    href: "/for/right-to-work-checks/",
+    children: [
+      {
+        label: "Compliance",
+        href: "/for/right-to-work-checks/",
+        children: [
+          { label: "Right to Work", href: "/for/right-to-work-checks/" },
+          { label: "FWA Compliance", href: "/for/fwa-compliance/" },
+          { label: "Contractor Verification", href: "/for/contractor-verification/" },
+          { label: "Agency Worker Compliance", href: "/for/agency-worker-compliance/" },
+        ],
+      },
+      {
+        label: "Threats",
+        href: "/for/deepfakes/",
+        children: [
+          { label: "Deepfakes", href: "/for/deepfakes/" },
+          { label: "CEO Fraud", href: "/for/ceo-fraud/" },
+          { label: "Romance Scams", href: "/for/romance-scams/" },
+          { label: "Social Engineering", href: "/for/social-engineering/" },
+          { label: "Phishing", href: "/for/phishing/" },
+          { label: "Voice Cloning", href: "/for/voice-cloning/" },
+        ],
+      },
+      {
+        label: "Safeguarding",
+        href: "/for/safeguarding/",
+        children: [
+          { label: "School Pickups", href: "/for/school-pickups/" },
+          { label: "Protecting Elderly Parents", href: "/for/protecting-elderly-parents/" },
+          { label: "Lone Workers", href: "/for/lone-workers/" },
+          { label: "Safeguarding", href: "/for/safeguarding/" },
+        ],
+      },
+      {
+        label: "Scenarios",
+        href: "/for/online-dating/",
+        children: [
+          { label: "Online Dating", href: "/for/online-dating/" },
+          { label: "Estate Agent Viewings", href: "/for/estate-agent-viewings/" },
+          { label: "Airbnb", href: "/for/airbnb/" },
+          { label: "Nannies & Au Pairs", href: "/for/nannies-au-pairs/" },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Resources",
+    href: "/blog/",
+    children: [
+      { label: "Blog", href: "/blog/", description: "Insights on identity, trust, and compliance" },
+      { label: "Getting Started", href: "/onboarding/person/", description: "Set up Certifyd for individuals or organisations" },
+    ],
+  },
 ];
 
 export const TEAM: TeamMember[] = [
