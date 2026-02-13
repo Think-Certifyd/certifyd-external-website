@@ -1,5 +1,17 @@
 import type { NavItem, TeamMember, StoryCard } from "@/types";
 
+/**
+ * Hero graphic tilt classes — change these to adjust rotation site-wide.
+ * "left" tilts anticlockwise, "right" tilts clockwise.
+ * QRScanGraphic uses the "phone" variants for its larger overlapping mockups.
+ */
+export const GRAPHIC_TILT = {
+  left: "group-hover:-rotate-1 transition-transform duration-500 ease-out",
+  right: "group-hover:rotate-1 transition-transform duration-500 ease-out",
+  phoneBack: "group-hover:-rotate-3 transition-transform duration-500",
+  phoneFront: "group-hover:rotate-1 transition-transform duration-500",
+} as const;
+
 export const COMPANY = {
   name: "Certifyd",
   tagline: "The identity layer for businesses that can't afford to get it wrong.",

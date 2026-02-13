@@ -1,3 +1,5 @@
+import { GRAPHIC_TILT } from "@/lib/constants";
+
 const TEAM = [
   { name: "Sarah Johnson", role: "Operations Manager", status: "verified" as const },
   { name: "David Chen", role: "Site Engineer", status: "verified" as const },
@@ -19,7 +21,7 @@ export function TeamVerification() {
         aria-hidden="true"
       />
 
-      <div className="relative bg-navy-light border border-navy-border rounded-lg overflow-hidden group-hover:rotate-1 transition-transform duration-500 ease-out shadow-2xl">
+      <div className={`relative bg-navy-light border border-navy-border rounded-lg overflow-hidden ${GRAPHIC_TILT.right} shadow-2xl`}>
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-3 border-b border-navy-border">
           <span className="font-heading text-xs font-semibold text-text-on-dark-muted uppercase tracking-wider">

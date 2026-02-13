@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { GRAPHIC_TILT } from "@/lib/constants";
 
 export function QRScanGraphic() {
   return (
@@ -15,7 +16,7 @@ export function QRScanGraphic() {
       {/* Two overlapping phone mockups */}
       <div className="relative w-full max-w-sm mx-auto h-80 lg:h-96">
         {/* Back phone — QR code */}
-        <div className="absolute left-0 top-0 w-44 lg:w-52 h-72 lg:h-80 rounded-2xl overflow-hidden border-2 border-navy-border shadow-2xl -rotate-6 group-hover:-rotate-3 transition-transform duration-500">
+        <div className={`absolute left-0 top-0 w-44 lg:w-52 h-72 lg:h-80 rounded-2xl overflow-hidden border-2 border-navy-border shadow-2xl ${GRAPHIC_TILT.phoneBack}`}>
           <Image
             src="/app/scan-qr-mockup.png"
             alt="Certifyd QR code screen"
@@ -26,7 +27,7 @@ export function QRScanGraphic() {
         </div>
 
         {/* Front phone — Verification result */}
-        <div className="absolute right-0 top-8 w-44 lg:w-52 h-72 lg:h-80 rounded-2xl overflow-hidden border-2 border-navy-border shadow-2xl rotate-3 group-hover:rotate-1 transition-transform duration-500 z-10">
+        <div className={`absolute right-0 top-8 w-44 lg:w-52 h-72 lg:h-80 rounded-2xl overflow-hidden border-2 border-navy-border shadow-2xl ${GRAPHIC_TILT.phoneFront} z-10`}>
           <Image
             src="/app/hero-mockup-2.png"
             alt="Certifyd identity verification confirmed"
